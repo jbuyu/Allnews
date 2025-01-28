@@ -1,14 +1,30 @@
 {
-  "name": "betternews",
+  "name": "allnews",
   "scripts": {
-    "dev": "bun run --hot server/index.ts"
+    "dev": "bun run --hot server/index.ts",
+    "format:write": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "dependencies": {
-    "hono": "^4.6.19"
+    "@hono/zod-validator": "^0.4.2",
+    "@lucia-auth/adapter-drizzle": "^1.1.0",
+    "drizzle-orm": "^0.39.0",
+    "hono": "^4.6.19",
+    "lucia": "^3.2.2",
+    "postgres": "^3.4.5",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.2.5",
+    "@eslint/js": "^9.19.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@types/bun": "latest",
-    "prettier": "^3.4.2"
+    "drizzle-kit": "^0.30.3",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-drizzle": "^0.2.3",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.21.0"
   }
 }
