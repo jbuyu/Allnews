@@ -14,13 +14,14 @@ const processEnv = EnvSchema.parse(process.env);
 
 const queryClient = postgres(processEnv.DATABASE_URL);
 
-const db = drizzle(queryClient, {
+export const db = drizzle(queryClient, {
     schema: {
         user: userTable,
         session: sessionTable
-
     }
 });
+// const result = await db.execute("SELECT 1 + 1 AS result");
+// console.log(result);
 export const adapter = new DrizzlePostgreSQLAdapter(
     db,
     sessionTable,
