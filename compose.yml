@@ -24,7 +24,7 @@ services:
     networks:
       - allnews-network
     ports:
-      - "5432:5432"
+      - "5431:5432"
 
 networks:
   allnews-network:

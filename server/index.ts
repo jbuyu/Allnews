@@ -4,9 +4,11 @@ import { cors } from "hono/cors";
 import { HTTPException } from "hono/http-exception";
 import { lucia } from "./lucia";
 import type { Context } from "./context";
+import { authRouter } from "./routes/auth";
+import { postRouter } from "./routes/posts";
+import { commentsRouter } from "./routes/comments";
 
 const app = new Hono<Context>();
-
 
 
 app.use("*", cors(), async (c, next) => {
@@ -32,6 +34,14 @@ app.use("*", cors(), async (c, next) => {
   c.set("user", user);
   return next();
 });
+
+const routes = app.basePath("/api").route("/auth", authRouter).route("/posts", postRouter).route("/comments", commentsRouter);
+
+app.get("/", (c) => {
+  const user = c.get("user")
+  if (!user) return c.text("Unauthorized", 401)
+  return c.json({ success: true, message: "Hello World" })
+})
 
 //error handling
 app.onError((err, c) => {
@@ -65,3 +75,4 @@ app.onError((err, c) => {
 });
 
 export default app;
+export type ApiRoutes = typeof routes;
