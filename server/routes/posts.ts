@@ -250,8 +250,6 @@ export const postRouter = new Hono<Context>().post("/", loggedIn, zValidator("fo
         const sortOrder =
             order === "desc" ? desc(sortByColumn) : asc(sortByColumn);
 
-        console.log(sortBy, order);
-
         const [count] = await db
             .select({ count: countDistinct(commentsTable.id) })
             .from(commentsTable)
