@@ -1,4 +1,4 @@
-import { resolve } from "node:path";
+import path from "path";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 import tailwindcss from "@tailwindcss/vite";
@@ -19,7 +19,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@/shared": path.resolve(__dirname, "../shared"),
-      "@": resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
   server: {
