@@ -9,6 +9,10 @@ import { routeTree } from "./routeTree.gen";
 
 import "./styles.css";
 
+import { Loader2Icon } from "lucide-react";
+
+import { ErrorComponent } from "./components/error-component.tsx";
+import { NotFound } from "./components/not-found.tsx";
 import reportWebVitals from "./reportWebVitals.ts";
 
 const queryClient = new QueryClient();
@@ -21,6 +25,14 @@ const router = createRouter({
   scrollRestoration: true,
   defaultStructuralSharing: true,
   defaultPreloadStaleTime: 0,
+  defaultPendingComponent: () => (
+    <div className="mx-auto mt-8 flex flex-col items-center justify-center">
+      <Loader2Icon className="animate-spin" />
+      <p className="mt-2 text-sm text-muted-foreground">Loading...</p>
+    </div>
+  ),
+  defaultNotFoundComponent: NotFound,
+  defaultErrorComponent: ({ error }) => <ErrorComponent error={error} />,
 });
 
 // Register the router instance for type safety
