@@ -8,7 +8,8 @@ import {
 import { useForm } from "@tanstack/react-form";
 import { useQueryClient } from "@tanstack/react-query";
 import { fallback, zodSearchValidator } from "@tanstack/router-zod-adapter";
-import { zodValidator } from "@tanstack/zod-form-adapter";
+
+// import { zodValidator } from "@tanstack/zod-form-adapter";
 
 import { toast } from "sonner";
 import { z } from "zod";
@@ -28,6 +29,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 // import { FieldInfo } from "@/components/field-info";
+
+//route
 
 const signupSearchSchema = z.object({
   redirect: fallback(z.string(), "/").default("/"),
@@ -54,7 +57,6 @@ function Signup() {
       username: "",
       password: "",
     },
-    validatorAdapter: zodValidator(),
     validators: {
       onChange: loginSchema,
     },
