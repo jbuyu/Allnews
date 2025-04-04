@@ -12,7 +12,6 @@ const client = hc<ApiRoutes>("/", {
         }),
 }).api;
 
-
 export const postSignup = async (username: string, password: string) => {
     try {
         const res = await client.auth.signup.$post({

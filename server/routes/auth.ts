@@ -31,7 +31,7 @@ export const authRouter = new Hono<Context>().post("/signup", zValidator("form",
         console.log('first', error)
         if (error instanceof postgres.PostgresError && error.code === "23505") {
             throw new HTTPException(409, {
-                message: "Username already used",
+                message: "Username already exists.",
                 cause: { form: true },
             });
         }

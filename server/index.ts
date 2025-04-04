@@ -35,7 +35,11 @@ app.use("*", cors(), async (c, next) => {
   return next();
 });
 
-const routes = app.basePath("/api").route("/auth", authRouter).route("/posts", postRouter).route("/comments", commentsRouter);
+const routes = app
+  .basePath("/api")
+  .route("/auth", authRouter)
+  .route("/posts", postRouter)
+  .route("/comments", commentsRouter);
 
 app.get("/", (c) => {
   const user = c.get("user")
