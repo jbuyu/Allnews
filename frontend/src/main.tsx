@@ -13,13 +13,13 @@ import { Loader2Icon } from "lucide-react";
 
 import { ErrorComponent } from "./components/error-component.tsx";
 import { NotFound } from "./components/not-found.tsx";
-import type { RouterContext } from "./lib/utils.ts";
+// import type { RouterContext } from "./lib/utils.ts";
 import reportWebVitals from "./reportWebVitals.ts";
 
 const queryClient = new QueryClient();
 
 // Create a new router instance
-const router = createRouter<RouterContext>({
+const router = createRouter({
   routeTree,
   context: { queryClient },
   defaultPreload: "intent",

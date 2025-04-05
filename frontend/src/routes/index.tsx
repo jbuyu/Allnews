@@ -5,5 +5,5 @@ export const Route = createFileRoute("/")({
 });
 
 function App() {
-  return <div className="flex justify-start"></div>;
+  return <div className="flex justify-start">Milk</div>;
 }

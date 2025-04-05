@@ -4,6 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 
 import { MenuIcon } from "lucide-react";
 
+import { userQueryOptions } from "@/lib/api";
+
 // import { userQueryOptions } from "@/lib/api";
 
 import { Button } from "./ui/button";
@@ -18,18 +20,18 @@ import {
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const user = "ami";
-  // const { data: user } = useQuery(userQueryOptions());
+  const { data: user } = useQuery(userQueryOptions());
+  console.log("user", user);
   return (
     <header className="sticky top-0 z-50 w-full border-red-200  backdrop-blur supports-[backdrop-filter]:bg-red-200">
       <div className="container mx-auto flex items-center justify-between p-4">
         <div className="flex items-center space-x-4">
-          <Link to="/" className="text-2xl font-bold">
+          <Link to="." className="text-2xl font-bold">
             Allnews
           </Link>
           <nav className="hidden items-center space-x-4 md:flex">
             <Link
-              to={"/"}
+              to={"."}
               search={{ sortBy: "recent", order: "desc" }}
               className="hover:underline"
             >
@@ -37,7 +39,7 @@ export function Header() {
             </Link>
             <Link
               className="hover:underline"
-              to={"/"}
+              to={"."}
               search={{ sortBy: "points", order: "desc" }}
             >
               top
@@ -84,11 +86,11 @@ export function Header() {
                 Navigation
               </SheetDescription>
             </SheetHeader>
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-4 px-4">
               <Link
                 onClick={() => setIsOpen(false)}
                 className="hover:underline"
-                to={"/"}
+                to={"."}
                 search={{ sortBy: "recent", order: "desc" }}
               >
                 new
@@ -96,7 +98,7 @@ export function Header() {
               <Link
                 onClick={() => setIsOpen(false)}
                 className="hover:underline"
-                to={"/"}
+                to={"."}
                 search={{ sortBy: "points", order: "desc" }}
               >
                 top

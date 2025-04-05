@@ -38,6 +38,10 @@ export const sortBySchema = z.enum(["points", "recent"]);
 export const orderSchema = z.enum(["asc", "desc"]);
 
 
+export type sortBy = z.infer<typeof sortBySchema>;
+export type order = z.infer<typeof orderSchema>;
+
+
 export const paginationSchema = z.object({
     limit: z.number({ coerce: true }).optional().default(10),
     page: z.number({ coerce: true }).optional().default(1),
@@ -94,3 +98,4 @@ export type Comment = {
     };
     childComments?: Comment[];
 };
+
