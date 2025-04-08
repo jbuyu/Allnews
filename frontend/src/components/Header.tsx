@@ -26,7 +26,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-red-200  backdrop-blur supports-[backdrop-filter]:bg-red-200">
       <div className="container mx-auto flex items-center justify-between p-4">
         <div className="flex items-center space-x-4">
-          <Link to="." className="text-2xl font-bold">
+          <Link to="/" className="text-2xl font-bold">
             Allnews
           </Link>
           <nav className="hidden items-center space-x-4 md:flex">
