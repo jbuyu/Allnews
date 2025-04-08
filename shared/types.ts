@@ -38,8 +38,8 @@ export const sortBySchema = z.enum(["points", "recent"]);
 export const orderSchema = z.enum(["asc", "desc"]);
 
 
-export type sortBy = z.infer<typeof sortBySchema>;
-export type order = z.infer<typeof orderSchema>;
+export type SortBy = z.infer<typeof sortBySchema>;
+export type Order = z.infer<typeof orderSchema>;
 
 
 export const paginationSchema = z.object({
