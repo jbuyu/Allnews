@@ -31,7 +31,7 @@ export function Header() {
           </Link>
           <nav className="hidden items-center space-x-4 md:flex">
             <Link
-              to={"."}
+              to="/"
               search={{ sortBy: "recent", order: "desc" }}
               className="hover:underline"
             >
@@ -39,7 +39,7 @@ export function Header() {
             </Link>
             <Link
               className="hover:underline"
-              to={"."}
+              to="/"
               search={{ sortBy: "points", order: "desc" }}
             >
               top
@@ -90,7 +90,7 @@ export function Header() {
               <Link
                 onClick={() => setIsOpen(false)}
                 className="hover:underline"
-                to={"."}
+                to="/"
                 search={{ sortBy: "recent", order: "desc" }}
               >
                 new
@@ -98,7 +98,7 @@ export function Header() {
               <Link
                 onClick={() => setIsOpen(false)}
                 className="hover:underline"
-                to={"."}
+                to="/"
                 search={{ sortBy: "points", order: "desc" }}
               >
                 top
