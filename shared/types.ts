@@ -1,5 +1,9 @@
-import { insertPostSchema } from "@/db/schemas/posts";
+import { insertPostSchema } from "../server/db/schemas/posts";
 import { z } from "zod";
+
+import type { ApiRoutes } from "../server/index";
+
+export { type ApiRoutes };
 
 export type SuccessResponse<T = void> = {
     success: true;
@@ -32,6 +36,10 @@ export const createPostSchema = insertPostSchema.pick({
 
 export const sortBySchema = z.enum(["points", "recent"]);
 export const orderSchema = z.enum(["asc", "desc"]);
+
+
+export type sortBy = z.infer<typeof sortBySchema>;
+export type order = z.infer<typeof orderSchema>;
 
 
 export const paginationSchema = z.object({
@@ -90,3 +98,4 @@ export type Comment = {
     };
     childComments?: Comment[];
 };
+
