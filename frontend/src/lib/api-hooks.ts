@@ -1,9 +1,18 @@
 import {
     useMutation,
     useQueryClient,
+    type InfiniteData,
 } from "@tanstack/react-query";
 
 import { toast } from "sonner";
+import { upvotePost, type GetPostsSuccess } from "./api";
+import type { Post, SuccessResponse } from "@/shared/types";
+import { current, produce } from "immer"
+
+const updatePostUpvote = (draft: Post) => {
+    draft.points += draft.isUpvoted ? -1 : +1;
+    draft.isUpvoted = !draft.isUpvoted;
+}
 
 
 export const useUpvotePost = () => {

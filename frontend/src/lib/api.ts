@@ -1,6 +1,6 @@
 import type { ApiRoutes, ErrorResponse, SuccessResponse, SortBy, Order } from "@/shared/types";
 import { queryOptions } from "@tanstack/react-query";
-import { hc } from "hono/client";
+import { hc, type InferResponseType } from "hono/client";
 
 
 
@@ -73,7 +73,7 @@ export const postLogin = async (username: string, password: string) => {
     }
 };
 
-
+export type GetPostsSuccess = InferResponseType<typeof client.posts.$get>;
 export const getPosts = async ({
     pageParam = 1,
     pagination,
@@ -102,3 +102,19 @@ export const getPosts = async ({
     const data = await res.json();
     return data;
 };
+
+export async function upvotePost(id: string) {
+    // await new Promise((resolve) => setTimeout(resolve, 5000));
+    // throw new Error("test");
+    const res = await client.posts[":id"].upvote.$post({
+        param: {
+            id,
+        },
+    });
+    if (res.ok) {
+        const data = await res.json();
+        return data;
+    }
+    const data = (await res.json()) as unknown as ErrorResponse;
+    throw new Error(data.error);
+}

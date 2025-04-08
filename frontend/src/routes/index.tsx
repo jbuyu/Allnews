@@ -9,6 +9,7 @@ import { z } from "zod";
 
 import { orderSchema, sortBySchema } from "@/shared/types";
 import { getPosts } from "@/lib/api";
+import { useUpvotePost } from "@/lib/api-hooks";
 import { Button } from "@/components/ui/button";
 import { PostCard } from "@/components/post-card";
 import { SortBar } from "@/components/sort-bar";
@@ -71,7 +72,7 @@ function HomeComponent() {
       postsInfiniteQueryOptions({ sortBy, order, author, site }),
     );
 
-  // const upvoteMutation = useUpvotePost();
+  const upvoteMutation = useUpvotePost();
   return (
     <div className="mx-auto max-w-3xl p-4">
       <h1 className="mb-6 text-2xl font-bold text-foreground">Posts</h1>
