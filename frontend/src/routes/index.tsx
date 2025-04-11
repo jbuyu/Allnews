@@ -75,7 +75,19 @@ function HomeComponent() {
   const upvoteMutation = useUpvotePost();
   return (
     <div className="mx-auto max-w-3xl p-4">
-      <h1 className="mb-6 text-2xl font-bold text-foreground">Posts</h1>
+      <div className="flex items-center justify-between py-4">
+        <div className="mb-6 text-2xl font-bold text-foreground items-center">
+          Posts
+        </div>
+        <Button
+          asChild
+          size="sm"
+          variant="secondary"
+          className="bg-secondary-foreground text-primary-foreground hover:bg-secondary-foreground/70"
+        >
+          <a href="/submit">Create Post</a>
+        </Button>
+      </div>
       <SortBar sortBy={sortBy} order={order} />
       <div className="space-y-4">
         {data?.pages.map((page) =>

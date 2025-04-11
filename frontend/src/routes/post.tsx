@@ -127,7 +127,7 @@ function Post() {
                   activeReplyId={activeReplyId}
                   setActiveReplyId={setActiveReplyId}
                   isLast={index === page.data.length - 1}
-                  // toggleUpvote={upvoteComment.mutate}
+                  toggleUpvote={upvoteComment.mutate}
                 />
               )),
             )}

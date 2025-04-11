@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, NewspaperIcon } from "lucide-react";
 
 import { userQueryOptions } from "@/lib/api";
 
@@ -21,13 +21,16 @@ import {
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { data: user } = useQuery(userQueryOptions());
-  console.log("user", user);
   return (
-    <header className="sticky top-0 z-50 w-full border-red-200  backdrop-blur supports-[backdrop-filter]:bg-red-200">
+    <header className="sticky top-0 z-50 rounded-md   justify-center  backdrop-blur supports-[backdrop-filter]:bg-green-200 mx-40 mt-1">
       <div className="container mx-auto flex items-center justify-between p-4">
-        <div className="flex items-center space-x-4">
-          <Link to="/" className="text-2xl font-bold">
-            Allnews
+        <div className="flex items-center space-x-8">
+          <Link
+            to="/"
+            className="text-xl font-bold flex items-center space-x-2"
+          >
+            <img src="/logo.svg" alt="" srcset="" className="h-11" />
+            <div>Allnews</div>
           </Link>
           <nav className="hidden items-center space-x-4 md:flex">
             <Link
@@ -43,9 +46,6 @@ export function Header() {
               search={{ sortBy: "points", order: "desc" }}
             >
               top
-            </Link>
-            <Link to="/submit" className="hover:underline">
-              submit
             </Link>
           </nav>
         </div>

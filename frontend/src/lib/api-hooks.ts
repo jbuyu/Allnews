@@ -5,7 +5,7 @@ import {
 } from "@tanstack/react-query";
 
 import { toast } from "sonner";
-import { upvoteComment, upvotePost, type GetPostsSuccess } from "./api";
+import { postComment, upvoteComment, upvotePost, type GetPostsSuccess } from "./api";
 import type { PaginatedResponse, Post, SuccessResponse } from "@/shared/types";
 import { current, produce } from "immer"
 

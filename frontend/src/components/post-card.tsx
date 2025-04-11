@@ -25,7 +25,7 @@ export const PostCard = ({
           onUpvote?.(post.id);
         }}
         className={cn(
-          "ml-3 flex flex-col items-center justify-center text-muted-foreground hover:text-red-300 cursor-pointer ",
+          "ml-3 flex flex-col items-center justify-center text-muted-foreground hover:text-green-700 cursor-pointer ",
           post.isUpvoted ? "text-primary" : "",
         )}
         disabled={!user}
@@ -40,14 +40,14 @@ export const PostCard = ({
               {post.url ? (
                 <a
                   href={post.url}
-                  className="text-foreground hover:text-red-300 hover:underline"
+                  className="text-foreground hover:text-green-700 hover:underline"
                 >
                   {post.title}
                 </a>
               ) : (
                 <Link
                   to={"/"}
-                  className="text-foreground hover:text-red-300 hover:underline"
+                  className="text-foreground hover:text-green-700 hover:underline"
                 >
                   {post.title}
                 </Link>

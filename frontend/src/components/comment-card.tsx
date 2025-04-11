@@ -92,18 +92,18 @@ export function CommentCard({
           <button
             disabled={!user}
             className={cn(
-              "flex items-center space-x-1 hover:text-primary",
+              "flex items-center space-x-1  cursor-pointer hover:text-green-700",
               isUpvoted ? "text-primary" : "text-muted-foreground",
             )}
             onClick={() =>
               toggleUpvote({
                 id: comment.id.toString(),
-                postId: comment.postId,
+                postId: Number(comment.postId),
                 parentCommentId: comment.parentCommentId,
               })
             }
           >
-            <ChevronUpIcon size={14} />
+            <ChevronUpIcon size={16} />
             <span className="font-medium">{comment.points}</span>
           </button>
           <span className="text-muted-foreground">·</span>
