@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 
-import { MenuIcon, NewspaperIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 
 import { userQueryOptions } from "@/lib/api";
 
@@ -29,7 +29,7 @@ export function Header() {
             to="/"
             className="text-xl font-bold flex items-center space-x-2"
           >
-            <img src="/logo.svg" alt="" srcset="" className="h-11" />
+            <img src="/logo.svg" alt="" className="h-11" />
             <div>Allnews</div>
           </Link>
           <nav className="hidden items-center space-x-4 md:flex">
