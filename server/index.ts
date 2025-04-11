@@ -43,11 +43,11 @@ const routes = app
   .route("/posts", postRouter)
   .route("/comments", commentsRouter);
 
-app.get("/", (c) => {
-  const user = c.get("user")
-  if (!user) return c.text("Unauthorized", 401)
-  return c.json({ success: true, message: "Hello World" })
-})
+// app.get("/", (c) => {
+//   const user = c.get("user")
+//   if (!user) return c.text("Unauthorized", 401)
+//   return c.json({ success: true, message: "Hello World" })
+// })
 
 //error handling
 app.onError((err, c) => {
@@ -81,7 +81,12 @@ app.onError((err, c) => {
 });
 
 app.get("*", serveStatic({ root: "./frontend/dist" }));
-app.get("*", serveStatic({ path: "./frontend/dist/index.html" }));
 
-export default app;
+export default {
+  port: process.env["PORT"] || 3000,
+  hostname: "0.0.0.0",
+  fetch: app.fetch,
+};
+
+console.log("Server Running on port", process.env["PORT"] || 3000);
 export type ApiRoutes = typeof routes;
