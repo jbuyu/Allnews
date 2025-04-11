@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "bun run --hot server/index.ts",
     "format:write": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "start": "bun  server/index.ts"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.4.2",

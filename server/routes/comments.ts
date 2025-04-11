@@ -168,7 +168,7 @@ export const commentsRouter = new Hono<Context>()
         },
     )
     .get(
-        "/:id",
+        "/:id/comments",
         zValidator("param", z.object({ id: z.coerce.number() })),
         zValidator("query", paginationSchema),
         async (c) => {

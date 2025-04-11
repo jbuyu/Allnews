@@ -7,6 +7,8 @@ import type { Context } from "./context";
 import { authRouter } from "./routes/auth";
 import { postRouter } from "./routes/posts";
 import { commentsRouter } from "./routes/comments";
+import { serveStatic } from "hono/bun";
+
 
 const app = new Hono<Context>();
 
@@ -41,11 +43,11 @@ const routes = app
   .route("/posts", postRouter)
   .route("/comments", commentsRouter);
 
-app.get("/", (c) => {
-  const user = c.get("user")
-  if (!user) return c.text("Unauthorized", 401)
-  return c.json({ success: true, message: "Hello World" })
-})
+// app.get("/", (c) => {
+//   const user = c.get("user")
+//   if (!user) return c.text("Unauthorized", 401)
+//   return c.json({ success: true, message: "Hello World" })
+// })
 
 //error handling
 app.onError((err, c) => {
@@ -78,5 +80,13 @@ app.onError((err, c) => {
   );
 });
 
-export default app;
+app.get("*", serveStatic({ root: "./frontend/dist" }));
+
+export default {
+  port: process.env["PORT"] || 3000,
+  hostname: "0.0.0.0",
+  fetch: app.fetch,
+};
+
+console.log("Server Running on port", process.env["PORT"] || 3000);
 export type ApiRoutes = typeof routes;
