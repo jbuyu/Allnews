@@ -4,12 +4,12 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import type { RouterContext } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
-import { Header } from "@/components/header";
+import { Header } from "@/components/Header";
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: () => (
     <>
-      <div className="flex flex-col min-h-screen border-2 border-black">
+      <div className="flex flex-col min-h-screen ">
         <Header />
         <main className="container mx-auto grow p-4">
           <Outlet />

@@ -7,6 +7,8 @@ import type { Context } from "./context";
 import { authRouter } from "./routes/auth";
 import { postRouter } from "./routes/posts";
 import { commentsRouter } from "./routes/comments";
+import { serveStatic } from "hono/bun";
+
 
 const app = new Hono<Context>();
 
@@ -77,6 +79,9 @@ app.onError((err, c) => {
     500,
   );
 });
+
+app.get("*", serveStatic({ root: "./frontend/dist" }));
+app.get("*", serveStatic({ path: "./frontend/dist/index.html" }));
 
 export default app;
 export type ApiRoutes = typeof routes;
