@@ -1,4 +1,4 @@
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 
 import { ArrowUpIcon } from "lucide-react";
 
@@ -38,27 +38,29 @@ export function SortBar({ sortBy, order }: { sortBy: SortBy; order: Order }) {
           <SelectItem value="recent">Recent</SelectItem>
         </SelectContent>
       </Select>
-      <Button
-        variant="outline"
-        size="icon"
-        onClick={() => {
-          navigate({
-            to: ".",
-            search: (prev) => ({
-              ...prev,
-              order: order === "asc" ? "desc" : "asc",
-            }),
-          });
-        }}
-        aria-label={order === "asc" ? "Sort Descending" : "Sort Ascending"}
-      >
-        <ArrowUpIcon
-          className={cn(
-            "size-4 transition-transform duration-300",
-            order === "desc" && "rotate-180",
-          )}
-        />
-      </Button>
+      <div className="flex items-center space-x-2">
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => {
+            navigate({
+              to: ".",
+              search: (prev) => ({
+                ...prev,
+                order: order === "asc" ? "desc" : "asc",
+              }),
+            });
+          }}
+          aria-label={order === "asc" ? "Sort Descending" : "Sort Ascending"}
+        >
+          <ArrowUpIcon
+            className={cn(
+              "size-4 transition-transform duration-300",
+              order === "desc" && "rotate-180",
+            )}
+          />
+        </Button>
+      </div>
     </div>
   );
 }

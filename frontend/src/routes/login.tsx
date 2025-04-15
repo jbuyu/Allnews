@@ -73,7 +73,7 @@ function Login() {
   });
   return (
     <div className="w-full">
-      <Card className="mx-auto mt-12 max-w-sm border-border/25">
+      <Card className="mx-auto mt-12 max-w-sm border-0 shadow-none">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -82,16 +82,17 @@ function Login() {
           }}
         >
           <CardHeader>
-            <CardTitle className="text-center text-2xl">Login</CardTitle>
-            <CardDescription>Enter your details below to login</CardDescription>
+            <CardTitle className="text-center text-4xl">Login</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-4">
+            <div className="grid gap-6">
               <form.Field
                 name="username"
                 children={(field) => (
                   <div className="grid gap-2">
-                    <Label htmlFor={field.name}>Username</Label>
+                    <Label className="text-md" htmlFor={field.name}>
+                      Username
+                    </Label>
                     <Input
                       id={field.name}
                       name={field.name}
@@ -107,7 +108,9 @@ function Login() {
                 name="password"
                 children={(field) => (
                   <div className="grid gap-2">
-                    <Label htmlFor={field.name}>Password</Label>
+                    <Label className="text-md" htmlFor={field.name}>
+                      Password
+                    </Label>
                     <Input
                       type="password"
                       id={field.name}

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 
-import { ChevronUpIcon } from "lucide-react";
+import { ChevronUpIcon, Edit, Trash2 } from "lucide-react";
 
 import type { Post } from "@/shared/types";
 import { userQueryOptions } from "@/lib/api";
@@ -19,7 +19,7 @@ export const PostCard = ({
 }) => {
   const { data: user } = useQuery(userQueryOptions());
   return (
-    <Card className="flex items-start justify-start pt-3">
+    <Card className="flex items-start justify-start pt-3  ">
       <button
         onClick={() => {
           onUpvote?.(post.id);
@@ -33,7 +33,7 @@ export const PostCard = ({
         <ChevronUpIcon size={20} />
         <span className="text-xs font-medium">{post.points}</span>
       </button>
-      <div className="flex grow flex-col justify-between">
+      <div className="flex grow flex-col justify-between w-full">
         <div className="flex items-start p-3 py-0">
           <div className="flex grow flex-wrap items-center gap-x-2 pb-1">
             <CardTitle className="text-xl font-medium">
@@ -94,6 +94,10 @@ export const PostCard = ({
             </Link>
           </div>
         </CardContent>
+        <div className="flex justify-end space-x-2 px-2">
+          <Edit size={20} className="cursor-pointer hover:text-green-700" />
+          <Trash2 size={20} className="cursor-pointer hover:text-green-700" />
+        </div>
       </div>
     </Card>
   );
