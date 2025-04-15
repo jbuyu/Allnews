@@ -22,7 +22,7 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { data: user } = useQuery(userQueryOptions());
   return (
-    <header className="sticky top-0 z-50 rounded-md   justify-center  backdrop-blur supports-[backdrop-filter]:bg-green-200 mx-40 mt-1">
+    <header className="sticky top-0 z-50 rounded-md   justify-center  backdrop-blur supports-[backdrop-filter]:bg-green-200 mx:0 sm:mx-20 mt-2">
       <div className="container mx-auto flex items-center justify-between p-4">
         <div className="flex items-center space-x-8">
           <Link
@@ -81,7 +81,7 @@ export function Header() {
           </SheetTrigger>
           <SheetContent className="mb-2">
             <SheetHeader>
-              <SheetTitle>BetterNews</SheetTitle>
+              <SheetTitle>Allnews</SheetTitle>
               <SheetDescription className="sr-only">
                 Navigation
               </SheetDescription>
