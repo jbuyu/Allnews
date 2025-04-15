@@ -1,14 +1,22 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 
 import { MenuIcon } from "lucide-react";
 
+import type { SortBy } from "@/shared/types";
 import { userQueryOptions } from "@/lib/api";
 
 // import { userQueryOptions } from "@/lib/api";
 
 import { Button } from "./ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 import {
   Sheet,
   SheetContent,
@@ -27,27 +35,31 @@ export function Header() {
         <div className="flex items-center space-x-8">
           <Link
             to="/"
-            className="text-xl font-bold flex items-center space-x-2"
+            className="text-xl font-bold flex items-end justify-end space-x-2"
           >
             <img src="/logo.svg" alt="" className="h-11" />
             <div>Allnews</div>
           </Link>
-          <nav className="hidden items-center space-x-4 md:flex">
-            <Link
-              to="/"
-              search={{ sortBy: "recent", order: "desc" }}
-              className="hover:underline"
-            >
-              new
-            </Link>
-            <Link
-              className="hover:underline"
-              to="/"
-              search={{ sortBy: "points", order: "desc" }}
-            >
-              top
-            </Link>
-          </nav>
+          {/* <Select
+            value={sortBy}
+            onValueChange={(sortBy: SortBy) =>
+              navigate({
+                to: ".",
+                search: (prev) => ({
+                  ...prev,
+                  sortBy,
+                }),
+              })
+            }
+          >
+            <SelectTrigger className="w-[180px] border-green-300">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="points">Points</SelectItem>
+              <SelectItem value="recent">Recent</SelectItem>
+            </SelectContent>
+          </Select> */}
         </div>
         <div className="hidden items-center space-x-4 md:flex">
           {user ? (

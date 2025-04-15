@@ -69,8 +69,8 @@ function Submit() {
 
   return (
     <div className="w-full">
-      <Card className="mx-auto mt-12 max-w-lg border-border/25">
-        <CardHeader>
+      <Card className="mx-auto mt-12 max-w-lg  shadow-none border-0 gap-8">
+        <CardHeader className="text-center gap-4">
           <CardTitle>Create New Post</CardTitle>
           <CardDescription>
             Leave url blank to submit a question for discussion. If there is no

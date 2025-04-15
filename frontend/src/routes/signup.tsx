@@ -77,7 +77,7 @@ function Signup() {
   });
   return (
     <div className="w-full">
-      <Card className="mx-auto mt-12 max-w-sm border-border/25">
+      <Card className="mx-auto mt-12 max-w-sm shadow-none border-0">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -86,18 +86,17 @@ function Signup() {
           }}
         >
           <CardHeader>
-            <CardTitle className="text-center text-2xl">Signup</CardTitle>
-            <CardDescription>
-              Enter your details below to create an account
-            </CardDescription>
+            <CardTitle className="text-center text-4xl">Signup</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-4">
+            <div className="grid gap-6">
               <form.Field
                 name="username"
                 children={(field) => (
                   <div className="grid gap-2">
-                    <Label htmlFor={field.name}>Username</Label>
+                    <Label className="text-md" htmlFor={field.name}>
+                      Username
+                    </Label>
                     <Input
                       id={field.name}
                       name={field.name}
@@ -113,7 +112,9 @@ function Signup() {
                 name="password"
                 children={(field) => (
                   <div className="grid gap-2">
-                    <Label htmlFor={field.name}>Password</Label>
+                    <Label className="text-md" htmlFor={field.name}>
+                      Password
+                    </Label>
                     <Input
                       type="password"
                       id={field.name}
